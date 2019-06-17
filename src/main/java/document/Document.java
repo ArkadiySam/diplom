@@ -6,6 +6,7 @@ import tools.Misc;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Document {
     private String docName;
@@ -18,6 +19,13 @@ public abstract class Document {
         this.path += fileName;
     }
 
+    private ElementType getElementByName(String name) {
+        for (ElementType element : elements)
+            if (element.getName().equals(name))
+                return element;
+        return null;
+    }
+
     public String getPath() {
         return path;
     }
@@ -26,11 +34,43 @@ public abstract class Document {
         return elements;
     }
 
+    public List<String> getParamListNew(HttpServletRequest request) {
+        Map<String, String[]> parameters = request.getParameterMap();
+        List<String> valueList = new ArrayList<>();
+        for(String key : parameters.keySet()){
+            if("id".equals(key)) continue;
+            ElementType element = this.getElementByName(key);
+            String value = Misc.toString(parameters.get(key)[0]);
+            if(element != null && element.getType().equals("table")){
+                int total = element.getTotalSize();
+                for(int i = 0; i < total - Integer.valueOf(value); i++)
+                    valueList.add("");
+            }
+            else {
+                while (value.contains("\r\n")) {
+                    value = value.replace("\r\n", nextLine);
+                }
+                valueList.add(value);
+            }
+        }
+        return valueList;
+    }
+
     public List<String> getParamList(HttpServletRequest request) {
         List<String> valueList = new ArrayList<>();
         List<String> params = new ArrayList<>();
-        for(ElementType element : elements)
-            params.add(element.getName());
+        for(ElementType element : elements) {
+            String type = element.getType();
+            if (type.equals("table")){
+                int tableSize = Integer.valueOf(request.getParameter(element.getName()));
+                for(int i = 0 ; i < tableSize; i++)
+                    params.add(element.getName() + i);
+                for(int  i = 0; i< element.getTotalSize() - tableSize; i++)
+                    params.add("");
+            }else
+                params.add(element.getName());
+        }
+
         for(String param : params){
             String value = Misc.toString(request.getParameter(param));
             while (value.contains("\r\n"))

@@ -4,7 +4,6 @@ import document.Document;
 import document.DocumentFactory;
 import tools.Translator;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,13 +27,13 @@ public class DownloadServlet extends HttpServlet {
         response.setHeader(headerKey, headerValue);
 
 
-        List<String> values = DocumentFactory.getDocument(id).getParamList(request);
-        byte[] buffer = new byte[500]; //увеличить буфер
+        List<String> values = DocumentFactory.getDocument(id).getParamListNew(request);
+        byte[] buffer = new byte[4096]; //увеличить буфер
         OutputStream outStream = response.getOutputStream();
 
         Translator translator = new Translator();
         while (inStream.read(buffer) != -1) {
-            byte [] newValues =  translator.change(buffer, "#$", values);
+            byte [] newValues =  translator.changeNew(buffer, "#$", values);
             for(byte value : newValues) {
                 outStream.write(value);
             }

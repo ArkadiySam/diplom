@@ -1,8 +1,40 @@
 package tools;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Translator {
+
+    public byte[] changeNew(byte[] data, String oldValue, List<String> newValue){
+        byte [] valueCode = oldValue.getBytes();
+        if(newValue.size() == 0) {
+            return data;
+        }
+        List<Byte> total = new ArrayList<>();
+        for (byte datum : data)
+            total.add(datum);
+        int index;
+        while (true) {
+            index = total.indexOf(valueCode[0]);
+            if(index + 1 != total.indexOf(valueCode[1]))
+                index = -1;
+            if(index == -1 || newValue.size() == 0) {
+                break;
+            }
+            byte [] newValueCode = newValue.get(0).getBytes();
+            total.remove(index);
+            total.remove(index);
+            for (int i = index; i < index + newValueCode.length; i++)
+                total.add(i, newValueCode[i - index]);
+            newValue.remove(0);
+        }
+        byte [] result = new byte[total.size()];
+        for(int i = 0; i < result.length; i++)
+            result[i] = total.get(i);
+        return result;
+    }
 
     public byte[] change(byte[] data, String oldValue, List<String> newValue){
         byte [] valueCode = oldValue.getBytes();
