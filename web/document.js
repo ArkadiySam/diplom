@@ -1,7 +1,7 @@
-var totalSize = 0;
 
 function add(name, size) {
     console.log(size);
+    var totalSize = document.getElementsByName(name)[0].value || 0;
     if(totalSize === 0)
         totalSize = size;
     var tbody = document.getElementById(name);

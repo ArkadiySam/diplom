@@ -4,6 +4,7 @@ import document.Document;
 import tools.ElementType;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UseDescription  extends Document{
     private static final String path = "opisanie_primenenia.rtf";
@@ -18,6 +19,12 @@ public class UseDescription  extends Document{
         elements.add(new ElementType("textarea", "Условия применения", "definitions"));
         elements.add(new ElementType("textarea", "Описание задачи", "description"));
         elements.add(new ElementType("textarea", "Входные и выходные данные", "data"));
+        elements.add(new ElementType("table", "Лист регистрации изменений", "register",
+                new ArrayList<>(Arrays.asList("Изм.", "изменен-ных",
+                        "заменен-ных", "новых","аннули-рованных",
+                        "Всего листов (страниц) в докум",
+                        "№ докумен-та","Входящий № сопроводит. докум. и дата",
+                        "Подп", "Дата")), 20));
     }
 
     public UseDescription () {

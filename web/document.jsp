@@ -26,8 +26,14 @@
                 break;
             case "table":
                 out.println("<table>" +
-                        "        <thead>" +
-                        "        <tr>");
+                        "        <thead>");
+                if(1 == element.getExtended())
+                    out.println("<tr>" +
+                            "<td colspan = 2><input type = 'text' name = 'year"+element.getName()+"1'></td>" +
+                            "<td colspan = 2><input type = 'text' name = 'year"+element.getName()+"2'></td>" +
+                            "<td colspan = 2><input type = 'text' name = 'year"+element.getName()+"3'></td>" +
+                            "</tr>");
+                out.println( "        <tr>");
                 for (String columnName : element.getColumn())
                     out.println("<td>" + columnName + "</td>");
                 out.println("        </tr>" +

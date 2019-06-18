@@ -8,6 +8,7 @@ public class ElementType {
     private String name;
     private List<String> column;
     private int totalSize;
+    private int extended;
 
     public ElementType(String type, String title, String name) {
         this.type = type;
@@ -21,6 +22,20 @@ public class ElementType {
         this.name = name;
         this.column = column;
         this.totalSize = totalSize;
+        this.extended = 0;
+    }
+
+    public ElementType(String type, String title, String name, List<String> column, int totalSize, int extended) {
+        this.type = type;
+        this.title = title;
+        this.name = name;
+        this.column = column;
+        this.totalSize = totalSize;
+        this.extended = extended;
+    }
+
+    public int getExtended() {
+        return extended;
     }
 
     public int getTotalSize() {

@@ -21,6 +21,10 @@ public class Formular extends Document {
                 new ArrayList<>(Arrays.asList("Обозначение", "Наименование", "Количество",
                         "Порядковый учетный номер", "Примечание")), 10));
         elements.add(new ElementType("text", "Обозначение", "controlName"));
+        elements.add(new ElementType("table", "Дата проведения испытаний", "testing",
+                new ArrayList<>(Arrays.asList("Отметка о соответствии", "Проводил испытания (должность, подпись)",
+                        "Отметка о соответствии", "Проводил испытания (должность, подпись)",
+                        "Отметка о соответствии", "Проводил испытания (должность, подпись)")), 12, 1));
         elements.add(new ElementType("text", "Наименование программного изделия", "certificateName"));
         elements.add(new ElementType("text", "Обозначение", "designation"));
         elements.add(new ElementType("text", "Дата выпуска", "releaseDate"));
