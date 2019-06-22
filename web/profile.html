@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета</title>
+</head>
+<body>
+Сводный опросник технического писателя.
+<br><br>Данный опросник создан на основе документа «Профессиональный стандарт «Технический писатель»».
+<br><br>Можете ли Вы с полной уверенностью сказать, что владеете следующими компетенциями?
+
+<ol>
+    <li>Оформление документа в соответствии с заданным стандартом
+        <br>Компоновка документа на основе заданных источников
+        <br>Разметка документа по правилам заданного языка разметки
+        <br>Подготовка графических схем по заданному описанию или эскизу
+        <br>Подготовка снимков экрана для включения в документ
+        <br>Разработка несложных технических документов
+    </li>
+    <div class="know" counter="0">
+        <p><input name="question0" type="radio" value="1"> Да</p>
+        <p><input name="question0" type="radio" value="0"> Нет</p>
+    </div>
+    <div class="time" style="display: none" counter="0">
+        <li>За какое время Вы можете достигнуть профессиональной подготовки?</li>
+        <p><input name="time0" type="radio" value="0">1 неделя</p>
+        <p><input name="time0" type="radio" value="1">2-3 недели</p>
+        <p><input name="time0" type="radio" value="2">1 месяц</p>
+    </div>
+
+
+    <li>Составление пользовательского эксплуатационного документа
+        <br>Оформление технического документа по заданному стандарту
+        <br>Создание справочной системы в стандартном формате
+        <br>Создание демонстрационного или обучающего видеоролика
+    </li>
+    <div class="know" counter="1">
+        <p><input name="question1" type="radio" value="1"> Да</p>
+        <p><input name="question1" type="radio" value="0"> Нет</p>
+    </div>
+    <div class="time" style="display: none" counter="1">
+        <li>За какое время Вы можете достигнуть профессиональной подготовки?</li>
+        <p><input name="time1" type="radio" value="0">1 неделя</p>
+        <p><input name="time1" type="radio" value="1">2-3 недели</p>
+        <p><input name="time1" type="radio" value="2">1 месяц</p>
+    </div>
+
+    <li>Написание рекламного текста для буклета, каталога, сайта
+        <br>Написание рекламной статьи (для сайта или профильных СМИ)
+        <br>Подготовка слайд-шоу и раздаточных материалов для доклада
+        <br>Описание информационных и математических моделей
+        <br>Описание технических решений с точки зрения ИТ-специалистов
+        <br>Создание и ведение справочного ресурса для ИТ-специалистов
+        <br>Проектирование комплекта технической документации
+        <br>Оценка затрат на создание комплекта технической документации
+        <br>Управление разработкой комплекта технической документации
+    </li>
+    <div class="know" counter="2">
+        <p><input name="question2" type="radio" value="1"> Да</p>
+        <p><input name="question2" type="radio" value="0"> Нет</p>
+    </div>
+    <div class="time" style="display: none" counter="2">
+        <li>За какое время Вы можете достигнуть профессиональной подготовки?</li>
+        <p><input name="time2" type="radio" value="0">1 неделя</p>
+        <p><input name="time2" type="radio" value="1">2-3 недели</p>
+        <p><input name="time2" type="radio" value="2">1 месяц</p>
+    </div>
+
+    <li>Поиск путей улучшения выпускаемой технической документации
+        <br>Внедрение в компании средств разработки тех. документации
+        <br>Техническая поддержка разработчиков тех. документации
+        <br>Организация работ по техническому документированию
+    </li>
+    <div class="know" counter="3">
+        <p><input name="question3" type="radio" value="1"> Да</p>
+        <p><input name="question3" type="radio" value="0"> Нет</p>
+    </div>
+    <div class="time" style="display: none" counter="3">
+        <li>За какое время Вы можете достигнуть профессиональной подготовки?</li>
+        <p><input name="time3" type="radio" value="0">1 неделя</p>
+        <p><input name="time3" type="radio" value="1">2-3 недели</p>
+        <p><input name="time3" type="radio" value="2">1 месяц</p>
+    </div>
+
+
+
+</ol>
+<button id="apply">Завершить</button>
+</body>
+</html>
+
+<script>
+    var noAnswer = document.querySelectorAll("div[class='know'] [value='0']");
+    var yesAnswer = document.querySelectorAll("div[class='know'] [value='1']");
+    for(var i = 0; i<noAnswer.length; i++) {
+        yesAnswer[i].onclick = function () {
+            document.getElementsByClassName("time")[+this.parentElement.parentElement.getAttribute("counter")].style.display = 'none'
+        };
+        noAnswer[i].onclick = function () {
+            document.getElementsByClassName("time")[+this.parentElement.parentElement.getAttribute("counter")].style.display = 'inline'
+        }
+    }
+
+    var btnApply = document.getElementById("apply");
+    btnApply.onclick = function () {
+        var yesCounter = document.querySelectorAll('div[class=know] input[value="1"]:checked').length;
+        var message = '';
+        switch (yesCounter) {
+            case 0:  message = 'Уровень Вашей подготовки не соответствует требованиям, предъявляемым к профессиональному качеству'; break;
+            case 1:  message = 'Уровень Вашей подготовки ниже требований, предъявляемых к профессиональному качеству'; break;
+            case 2:  message = 'Уровень Вашей подготовки не полностью соответствует требованиям, предъявляемым к профессиональному качеству'; break;
+            default:  message = 'Уровень Вашей подготовки полностью соответствует требованиям, предъявляемым к профессиональному качеству'; break
+        }
+        alert(message);
+    }
+</script>
