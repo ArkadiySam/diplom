@@ -54,7 +54,7 @@
     %>
     <input type="submit" value="Submit">
 </form>
-<form action="/save?id=<%=request.getAttribute("idDocument")%>" method="post">
+<form style="visibility: hidden" action="/save?id=<%=request.getAttribute("idDocument")%>" method="post">
     <input type="submit" value="Submit">
 </form>
 </body>
