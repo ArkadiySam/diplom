@@ -8,6 +8,10 @@
         <servlet-name>formular</servlet-name>
         <servlet-class>servlet.MainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>save</servlet-name>
+        <servlet-class>servlet.SaveDocServlet</servlet-class>
+    </servlet>
 
     <servlet>
         <servlet-name>download</servlet-name>
@@ -22,5 +26,9 @@
     <servlet-mapping>
         <servlet-name>download</servlet-name>
         <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>save</servlet-name>
+        <url-pattern>/save</url-pattern>
     </servlet-mapping>
 </web-app>
