@@ -1,8 +1,7 @@
 package document.model;
 
-import document.Document;
 import tools.ElementType;
-
+import document.Document;
 import java.util.ArrayList;
 
 public class DocumentsStatement extends Document {
@@ -11,7 +10,6 @@ public class DocumentsStatement extends Document {
 
     static {
         elements.add(new ElementType("text", "Имя документа", "title"));
-        elements.add(new ElementType("number", "Количество листов", "count"));
         elements.add(new ElementType("text", "Год", "year"));
         elements.add(new ElementType("textarea", "Аннотация", "annotation"));
     }

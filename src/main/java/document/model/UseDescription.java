@@ -12,7 +12,6 @@ public class UseDescription  extends Document{
 
     static {
         elements.add(new ElementType("text", "Имя документа", "title"));
-        elements.add(new ElementType("number", "Количество листов", "count"));
         elements.add(new ElementType("text", "Год", "year"));
         elements.add(new ElementType("textarea", "Аннотация", "annotation"));
         elements.add(new ElementType("textarea", "Назначение программы", "purpose"));

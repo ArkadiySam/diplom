@@ -1,5 +1,6 @@
 package servlet;
 
+
 import document.Document;
 import document.DocumentFactory;
 import tools.Translator;

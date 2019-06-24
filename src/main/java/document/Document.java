@@ -11,7 +11,7 @@ import java.util.Map;
 public abstract class Document {
     private String docName;
     private ArrayList<ElementType> elements;
-    private String path = "C:\\Users\\Arkadiy\\Desktop\\диплом\\template\\";
+    private String path = "C:\\Users\\Ксения\\Desktop\\доки\\template\\";
     private static final String nextLine = "{\\rtlch\\fcs1 \\af1\\afs23 \\ltrch\\fcs0 \\f1\\fs22\\cf6\\insrsid4534803\\par }";
 
     public Document(ArrayList<ElementType> elements, String fileName) {

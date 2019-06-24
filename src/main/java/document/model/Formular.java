@@ -11,22 +11,22 @@ public class Formular extends Document {
     private static ArrayList<ElementType> elements = new ArrayList<>();
 
     static {
-        elements.add(new ElementType("text", "Имя документа", "title"));
-        elements.add(new ElementType("number", "Количество листов", "count"));
+        elements.add(new ElementType("text", "Имя программы", "title"));
         elements.add(new ElementType("text", "Год", "year"));
-        elements.add(new ElementType("textarea", "Основные инструкции", "instructions"));
+        elements.add(new ElementType("textarea", "Общие указания", "instructions"));
         elements.add(new ElementType("textarea", "Общие сведения", "information"));
         elements.add(new ElementType("textarea", "Основные характеристики", "specifications"));
         elements.add(new ElementType("table", "Комплектность", "complect",
                 new ArrayList<>(Arrays.asList("Обозначение", "Наименование", "Количество",
                         "Порядковый учетный номер", "Примечание")), 10));
-        elements.add(new ElementType("text", "Обозначение", "controlName"));
+        elements.add(new ElementType("text", "Наименование продукта", "controlName"));
         elements.add(new ElementType("table", "Дата проведения испытаний", "testing",
                 new ArrayList<>(Arrays.asList("Отметка о соответствии", "Проводил испытания (должность, подпись)",
                         "Отметка о соответствии", "Проводил испытания (должность, подпись)",
                         "Отметка о соответствии", "Проводил испытания (должность, подпись)")), 12, 1));
         elements.add(new ElementType("text", "Наименование программного изделия", "certificateName"));
         elements.add(new ElementType("text", "Обозначение", "designation"));
+        elements.add(new ElementType("text", "Соответствует техническим условиям (стандарт)", "designation"));
         elements.add(new ElementType("text", "Дата выпуска", "releaseDate"));
         elements.add(new ElementType("textarea", "Гарантийные обязательства", "guarantee"));
         elements.add(new ElementType("table", "СВЕДЕНИЯ О РЕКЛАМАЦИЯХ", "reclam",
