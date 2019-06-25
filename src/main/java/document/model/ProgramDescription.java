@@ -4,6 +4,7 @@ import document.Document;
 import tools.ElementType;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ProgramDescription extends Document {
     private static final String path = "opisanie_programmy.rtf";
@@ -28,6 +29,12 @@ public class ProgramDescription extends Document {
         elements.add(new ElementType("textarea", "Формат, описание и способ кодирования входных данных", "input2"));
         elements.add(new ElementType("textarea", "Характер и организация выходных данных", "output1"));
         elements.add(new ElementType("textarea", "Формат, описание и способ кодирования выходных данных", "output2"));
+        elements.add(new ElementType("table", "Лист регистрации изменений", "register",
+                new ArrayList<>(Arrays.asList("Изм.", "изменен-ных",
+                        "заменен-ных", "новых","аннули-рованных",
+                        "Всего листов (страниц) в докум",
+                        "№ докумен-та","Входящий № сопроводит. докум. и дата",
+                        "Подп", "Дата")), 20));
     }
 
     public ProgramDescription() {

@@ -14,6 +14,14 @@ function add(name, size) {
         td.appendChild(input);
         row.appendChild(td);
     }
+    var span = document.createElement("span");
+    span.onclick = function (ev) {
+        this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+    };
+    span.innerText = 'Удалить';
+    td = document.createElement("TD");
+    td.appendChild(span);
+    row.appendChild(td);
     tbody.appendChild(row);
     document.getElementsByName(name)[0].value = totalSize;
 }

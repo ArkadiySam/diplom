@@ -1,6 +1,6 @@
 package servlet;
 
-
+import document.DocStorage;
 import document.Document;
 import document.DocumentFactory;
 import tools.Translator;
@@ -8,10 +8,7 @@ import tools.Translator;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 
 public class DownloadServlet extends HttpServlet {
@@ -33,6 +30,7 @@ public class DownloadServlet extends HttpServlet {
         OutputStream outStream = response.getOutputStream();
 
         Translator translator = new Translator();
+        InputStream input = DocStorage.getDoc(id);
         while (inStream.read(buffer) != -1) {
             byte [] newValues =  translator.changeNew(buffer, "#$", values);
             for(byte value : newValues) {

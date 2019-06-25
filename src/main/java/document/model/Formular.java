@@ -26,7 +26,7 @@ public class Formular extends Document {
                         "Отметка о соответствии", "Проводил испытания (должность, подпись)")), 12, 1));
         elements.add(new ElementType("text", "Наименование программного изделия", "certificateName"));
         elements.add(new ElementType("text", "Обозначение", "designation"));
-        elements.add(new ElementType("text", "Соответствует техническим условиям (стандарт)", "designation"));
+        elements.add(new ElementType("text", "Соответствует техническим условиям (стандарт)", "designation2"));
         elements.add(new ElementType("text", "Дата выпуска", "releaseDate"));
         elements.add(new ElementType("textarea", "Гарантийные обязательства", "guarantee"));
         elements.add(new ElementType("table", "СВЕДЕНИЯ О РЕКЛАМАЦИЯХ", "reclam",
